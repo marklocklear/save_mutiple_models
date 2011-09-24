@@ -1,0 +1,13 @@
+<%= form_tag :action => 'create' %>
+<% @results.each_with_index do |result, index| %>
+  <%= fields_for "results[#{index}]", result do |f| %>
+    Queston:<%= @questions[index].name %><br/>
+     <%= f.hidden_field :question_id%>
+    <%= f.radio_button :score, '0' %>:0
+    <%= f.radio_button :score, '1' %>:1
+    <%= f.radio_button :score, '2' %>:2
+    <%= f.radio_button :score, '3' %>:3
+    <%= f.radio_button :score, '4' %>:4<br/>
+  <% end %>
+<% end %>
+<%= submit_tag 'Submit' %><br/>
